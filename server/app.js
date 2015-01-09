@@ -3,7 +3,11 @@ SearchSource.defineSource('packages', function(searchText, options) {
   
   if(searchText) {
     var regExp = buildRegExp(searchText);
-    var selector = {packageName: regExp, description: regExp};
+    var selector = {$or: [
+      {packageName: regExp},
+      {description: regExp}
+    ]};
+    
     return Packages.find(selector, options).fetch();
   } else {
     return Packages.find({}, options).fetch();
@@ -11,7 +15,7 @@ SearchSource.defineSource('packages', function(searchText, options) {
 });
 
 function buildRegExp(searchText) {
-  // this is dumb implementation
-  var parts = searchText.trim().split(' ');
+  // this is a dumb implementation
+  var parts = searchText.trim().split(/[ \-\:]+/);
   return new RegExp("(" + parts.join('|') + ")", "ig");
 }
