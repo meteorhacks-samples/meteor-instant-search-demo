@@ -1,0 +1,38 @@
+<body>
+  <div class="container">
+    <div id="heading">
+      <h1>Meteor Package Search</h1>
+      <p>
+        <a target="_blank" href="https://meteorhacks.com/implementing-an-instant-search-solution-with-meteor.html">How This Works</a> | 
+        <a target="_blank" href="https://github.com/meteorhacks-samples/meteor-instant-search-demo">Source Code</a>
+      </p>
+    </div>
+    {{> searchBox }}
+    {{> searchResult}}
+  </div>
+</body>
+
+<template name="searchBox">
+  <input type="text" id="search-box" placeholder="search packages here" />
+</template>
+
+<template name="searchResult">
+  <div id='search-result'>
+    <div id="search-meta">
+      {{#if isLoading}}
+        searching ...
+      {{/if}}
+    </div>
+
+    {{#each getPackages}}
+    <div class="package">
+      <h4 class="name">
+        <a href="{{git}}" target="_blank">{{{packageName}}}</a>
+      </h4>
+      <div class="description">
+        {{{description}}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</template>

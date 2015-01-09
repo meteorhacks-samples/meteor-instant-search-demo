@@ -1,0 +1,31 @@
+#heading {
+  margin: 50px 0 20px 0;
+}
+
+#search-box {
+  padding: 10px;
+  width: 600px;
+  border: 1px solid #eee;
+  outline: 0;
+  font-size: 15px;
+}
+
+#search-result {
+  margin: 20px 0 100px 0;
+}
+
+#search-meta {
+  font-size: 13px;
+  color: #666;
+  height: 15px;
+}
+
+.package {
+  width: 600px;
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.package .name {
+  font-weight: 400;
+}
