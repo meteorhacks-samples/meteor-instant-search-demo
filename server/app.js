@@ -7,7 +7,7 @@ SearchSource.defineSource('packages', function(searchText, options) {
       {packageName: regExp},
       {description: regExp}
     ]};
-    
+
     return Packages.find(selector, options).fetch();
   } else {
     return Packages.find({}, options).fetch();
